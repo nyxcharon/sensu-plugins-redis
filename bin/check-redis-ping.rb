@@ -67,7 +67,6 @@ class RedisPing < Sensu::Plugin::Check::CLI
     end
 
   rescue
-    message "Could not connect to Redis server on #{config[:host]}:#{config[:port]}"
-    exit 1
+    critical "Could not connect to Redis server on #{config[:host]}:#{config[:port]}"
   end
 end
